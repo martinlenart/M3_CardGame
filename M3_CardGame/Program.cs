@@ -2,6 +2,9 @@
 
 namespace M3_CardGame
 {
+    // Git
+    // https://github.com/smarlen/M3_CardGame.git
+
     class Program
     {
         static void Main(string[] args)
@@ -12,6 +15,11 @@ namespace M3_CardGame
             Console.WriteLine();
             PlayingCard card2 = new PlayingCard();
             Console.WriteLine(card2);
+
+            DeckOfCards myDeck = new DeckOfCards();
+
+            Console.WriteLine(myDeck[13]);
+  
         }
     }
 }

@@ -31,5 +31,11 @@ namespace M3_CardGame
 			}
 		}
 		public override string ToString() => $"{Value} of {Color}, a {BlackOrRed} card";
+
+		public PlayingCard() 
+		{
+			Color = PlayingCardColor.Clubs;
+			Value = PlayingCardValue.Ace;
+		}
 	}
 }

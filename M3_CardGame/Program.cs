@@ -17,7 +17,6 @@ namespace M3_CardGame
             Console.WriteLine(card2);
 
             DeckOfCards myDeck = new DeckOfCards();
-
             Console.WriteLine(myDeck[13]);
   
         }

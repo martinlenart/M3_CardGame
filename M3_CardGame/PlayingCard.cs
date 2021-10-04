@@ -20,6 +20,25 @@ namespace M3_CardGame
 		public PlayingCardColor Color { get; init; }
 		public PlayingCardValue Value { get; init; }
 
+		#region ToString() related
+		public bool Verbose { get; set; } = true;
+
+		//Use switch statment or switch expression
+		//https://en.wikipedia.org/wiki/Playing_cards_in_Unicode
+		public string ShortDescription
+		{
+			get
+			{
+				char c = Color switch
+				{
+					PlayingCardColor.Clubs => '\x2663',
+					PlayingCardColor.Diamonds => '\x2666',
+					PlayingCardColor.Hearts => '\x2665',
+					_ => '\x2660', // Spades
+				};
+				return $"{c} {Value.ToString()}";
+			}
+		}
 		public string BlackOrRed
 		{
 			get
@@ -30,9 +49,16 @@ namespace M3_CardGame
 				return "Red";
 			}
 		}
-		public override string ToString() => $"{Value} of {Color}, a {BlackOrRed} card";
+		public override string ToString()
+		{
+			if (!Verbose)
+				return $"{ShortDescription}";
+			else
+				return $"{ShortDescription}: {Value} of {Color}, a {BlackOrRed} card";
+		}
+        #endregion
 
-		public PlayingCard() 
+        public PlayingCard() 
 		{
 			Color = PlayingCardColor.Clubs;
 			Value = PlayingCardValue.Ace;
